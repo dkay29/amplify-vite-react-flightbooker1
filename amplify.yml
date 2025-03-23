@@ -3,7 +3,7 @@ backend:
   phases:
     preBuild:
       commands:
-        - nvm install 18.19.0
+        - nvm install 18.19.0 -g aws-cdk
         - nvm use 18.19.0
         - node -v
     build:
@@ -14,8 +14,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 18.19.0
+        - nvm install 18.19.0 -g aws-cdk
         - nvm use 18.19.0
+        - cdk bootstrap --force
         - node -v  # Optional: to confirm the Node version
     build:
       commands:
